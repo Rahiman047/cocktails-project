@@ -1,12 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Cocktail = () => {
+const Cocktail = (props) => {
+  const { eachDrink } = props;
+  const { strDrink, strGlass, strAlcoholic, strDrinkThumb, idDrink } =
+    eachDrink;
+
+  console.log(idDrink);
+
   return (
-    <div>
-      <h2>cocktail component</h2>
+    <div className="cocktail">
+      <img src={strDrinkThumb} alt={strGlass} />
+      <footer className="cocktail-footer">
+        <h3>{strDrink}</h3>
+        <h4>{strGlass}</h4>
+        <p>{strAlcoholic}</p>
+        <button type="button" className="btn btn-primary">
+          <Link to={`products/:${idDrink}`}>DETAILS</Link>
+        </button>
+      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Cocktail
+export default Cocktail;

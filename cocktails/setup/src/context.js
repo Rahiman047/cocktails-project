@@ -13,7 +13,8 @@ const AppProvider = ({ children }) => {
     try {
       const resp = await axios.get(url);
       const data = await resp.data;
-      setInitialDrinks(data);
+
+      setInitialDrinks(data.drinks);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -25,7 +26,9 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ isLoading }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ isLoading, initialDrinks }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 // make sure use
