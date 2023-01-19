@@ -6,8 +6,6 @@ const Cocktail = (props) => {
   const { strDrink, strGlass, strAlcoholic, strDrinkThumb, idDrink } =
     eachDrink;
 
-  console.log(idDrink);
-
   return (
     <div className="cocktail">
       <img src={strDrinkThumb} alt={strGlass} />
@@ -16,7 +14,7 @@ const Cocktail = (props) => {
         <h4>{strGlass}</h4>
         <p>{strAlcoholic}</p>
         <button type="button" className="btn btn-primary">
-          <Link to={`products/:${idDrink}`}>DETAILS</Link>
+          <Link to={`products/${idDrink}`}>DETAILS</Link>
         </button>
       </footer>
     </div>

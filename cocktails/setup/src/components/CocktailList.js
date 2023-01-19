@@ -4,12 +4,12 @@ import Loading from "./Loading";
 import { useGlobalContext } from "../context";
 
 const CocktailList = () => {
-  const { isLoading, initialDrinks } = useGlobalContext();
+  const { isLoading, initialDrinks, noDrinks } = useGlobalContext();
 
   return (
     <div>
       {isLoading && <Loading />}
-      {!isLoading && (
+      {!noDrinks && (
         <div className="section">
           <h3 className="section-title">Cocktails</h3>
           <div className="cocktails-center">
@@ -19,6 +19,7 @@ const CocktailList = () => {
           </div>
         </div>
       )}
+      {noDrinks && <p className="section-title">No Drinks of this criteria</p>}
     </div>
   );
 };
